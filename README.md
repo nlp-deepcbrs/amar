@@ -18,6 +18,8 @@ A comprehensive experimental evaluation conducted on state of-the-art datasets s
   - cutorch
   - optim
   - pl
+  - cjson
+  - lfs
 
 ## Usage
 
