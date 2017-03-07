@@ -40,7 +40,28 @@ For instance, the training configuration file for the `train_amar_rnn.lua` file 
  - batch_size: number of training examples in a batch
  - num_epochs: number of training epochs
  - save_after: save model each save_after epochs
-See the specific training file to understand which are the required parameters.
+ 
+We report in the following code snippet a real configuration script that we used for our model:
+```json
+{
+  "items": "../datasets/ml1m/content/simple",
+  "models_mapping": {
+    "../datasets/ml1m/ratings/u1.base": "../resources/ml1m/amar/rnn/base/u1.model",
+    "../datasets/ml1m/ratings/u2.base": "../resources/ml1m/amar/rnn/base/u2.model",
+    "../datasets/ml1m/ratings/u3.base": "../resources/ml1m/amar/rnn/base/u3.model",
+    "../datasets/ml1m/ratings/u4.base": "../resources/ml1m/amar/rnn/base/u4.model",
+    "../datasets/ml1m/ratings/u5.base": "../resources/ml1m/amar/rnn/base/u5.model"
+  },
+  "optim_method": "rmsprop",
+  "training_params": {
+    "learningRate": 1e-3,
+    "alpha": 0.9
+  },
+  "batch_size": 32,
+  "num_epochs": 20,
+  "save_after": 5
+}
+```
 
 In addition, the evaluation configuration file for the `run_amar_experiments.lua` file is in JSON format and is composed by the following fields:
  - items: path of items descriptions
@@ -49,7 +70,23 @@ In addition, the evaluation configuration file for the `run_amar_experiments.lua
  - predictions: generated predictions filename
  - batch_size: number of examples in a batch
  - topn: list of cutoff values
-
+ 
+We report in the following code snippet a real configuration script that we used for our model:
+```json
+{
+  "items": "../datasets/ml1m/content/simple",
+  "models_mapping": {
+    "../datasets/ml1m/ratings/u1.test": "../resources/ml1m/amar/rnn/base/u1.model",
+    "../datasets/ml1m/ratings/u2.test": "../resources/ml1m/amar/rnn/base/u2.model",
+    "../datasets/ml1m/ratings/u3.test": "../resources/ml1m/amar/rnn/base/u3.model",
+    "../datasets/ml1m/ratings/u4.test": "../resources/ml1m/amar/rnn/base/u4.model",
+    "../datasets/ml1m/ratings/u5.test": "../resources/ml1m/amar/rnn/base/u5.model"
+  },
+  "predictions": "../experiments/results/ml1m/amar/rnn/base/predictions_%d_%d.txt",
+  "batch_size": 32,
+  "topn": 10
+}
+```
 ## Authors
 
 All the following authors have equally contributed to this project (listed in alphabetical order by surname):
