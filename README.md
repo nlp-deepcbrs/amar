@@ -84,7 +84,7 @@ We report in the following code snippet a real configuration script that we used
   },
   "predictions": "../experiments/results/ml1m/amar/rnn/base/predictions_%d_%d.txt",
   "batch_size": 32,
-  "topn": 10
+  "topn": [10]
 }
 ```
 ## Authors
